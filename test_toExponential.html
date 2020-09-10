@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Expo</title>
+</head>
+<body>
+<h1>JavaScript 数字方法</h1>
+<p>toExponential() 方法返回一个字符串，包含进行舍入的数字并使用指数表示法。</p>
+<p id="demo"></p>
+<script>
+    var x=9.656;
+    document.getElementById("demo").innerHTML=
+        x.toExponential() + "<br>"+
+        x.toExponential(2) + "<br>" +
+        x.toExponential(4) + "<br>" +
+        x.toExponential(6);
+</script>
+</body>
+</html>
