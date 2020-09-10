@@ -9,15 +9,29 @@
 <h1>JavaScript</h1>
 <p>toString() 方法以基数 2 到 36 输出字符串</p>
 <p>Test Push</p>
-<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
 <script>
     var myNumber=32;
-    document.getElementById("demo").innerHTML=
+    document.getElementById("demo1").innerHTML=
         "32="+"<br>"+
             "Decimal"+myNumber.toString(10)+"<br>" +
             " Hexadecimal " + myNumber.toString(16) + "<br>" +
             " Octal " + myNumber.toString(8) + "<br>" +
             " Binary " + myNumber.toString(2);
+    var x=9.656;
+    document.getElementById("demo2").innerHTML=
+        x.toExponential()+"<br>"+
+        x.toExponential(2) + "<br>" +
+        x.toExponential(4) + "<br>" +
+        x.toExponential(6);
+    var y=9.656;
+    document.getElementById("demo3").innerHTML=
+        y.toFixed(0)+"<br>"+
+        y.toFixed(2)+"<br>"+
+        y.toFixed(4)+"<br>"+
+        y.toFixed(6);
 </script>
 </body>
 </html>
