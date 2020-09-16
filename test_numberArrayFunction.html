@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Test numberArrayFunction</title>
 </head>
 <body>
+<h2>splice()</h2>
+<button onclick="myFunction()">试试splice</button>
+<p id="demo1"></p>
+<p id="demo2"></p>
 
+
+<button onclick="myFunction2()">试试concat</button>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<button onclick="myFunction3()">试试sort</button>
+<p id="demo5"></p>
+<button onclick="myFunction4()">试试sort</button>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<button onclick="myFunction5()">试试数sort</button>
+<p id="demo8"></p>
+<p>最低值是：<span id="demo9"></span></p>
+
+<script>
+    var fruits=["Banana", "Orange", "Apple", "Mango"];
+    // document.getElementById("demo1").innerHTML=fruits.join("!")
+    // var fruits2=["Banana", "Orange", "Apple", "Mango"];
+    // document.getElementById("demo2").innerHTML=fruits2.splice(2,0,"Lemon","Kiwi")
+    document.getElementById("demo1").innerHTML="原数组：<br>" +fruits;
+    function myFunction() {
+        var removed=fruits.splice(0,1,"Lemon","Kiwi");
+        document.getElementById("demo2").innerHTML="新数组：<br>" +fruits;
+        document.getElementById("demo3").innerHTML="已删除项：<br>"+ removed;
+
+    }
+    var arr1 = ["Cecilie", "Lone"];
+    var arr2 = ["Emil", "Tobias", "Linus"];
+    var arr3 = ["Robin", "Morgan"];
+    document.getElementById("demo3").innerHTML="arr1原数组：<br>" +arr1;
+    function myFunction2() {
+    var myChildren=arr1.concat(arr2,arr3);
+    document.getElementById("demo4").innerHTML="arr1新数组：<br>" +myChildren;
+    }
+    function myFunction3() {
+    fruits.sort();
+    document.getElementById("demo5").innerHTML=fruits;
+    }
+    function myFunction4() {
+    fruits.reverse();
+    document.getElementById("demo6").innerHTML=fruits;
+    }
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demo7").innerHTML=points;
+    function myFunction5() {
+    points.sort(function (a,b) {
+    return a-b});
+    document.getElementById("demo8").innerHTML=points;
+    }
+    document.getElementById("demo9").innerHTML=myArrayMin(points);
+    function myArrayMin(arr) {
+        return Math.min.apply(null,arr);
+    }
+</script>
 </body>
 </html>
