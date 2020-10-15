@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异常</title>
+</head>
+<body>
+<h1> JavaScript</h1>
+<p id="demo"></p>
+<p id="demo1"></p>
+<script>
+    try{
+        decodeURI("%%%");
+    }
+    catch (err) {
+        document.getElementById("demo").innerHTML=err.name;
+    }
+    try{
+        eval("alert('hello)");
+    }
+    catch (err) {
+        document.getElementById("demo1").innerHTML=err.name;
+    }
+</script>
+</body>
+</html>

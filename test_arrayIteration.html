@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Array</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+    var txt="";
+    var number=[45, 4, 9, 16, 25];
+    number.forEach(myFunction);
+    document.getElementById("demo").innerHTML=txt;
+    // function myFunction(value,index,array)
+    function myFunction(value) {
+    txt=txt+value+"<br>";
+    }
+    var number2=number.map(myFunction2);
+    document.getElementById("demo2").innerHTML=number2;
+    function myFunction2(value,index,array) {
+        return  value*2;
+    }
+    var over18=number.filter(myFunction3);
+    document.getElementById("demo3").innerHTML=over18
+    function myFunction3(value,index,array) {
+    return value >18;
+    }
+</script>
+</body>
+</html>

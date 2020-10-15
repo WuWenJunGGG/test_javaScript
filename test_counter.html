@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+</head>
+<body>
+<h1>JavaScript Getter 和 Setter</h1>
+<p>创建完美的计数器对象：</p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<script>
+    var obj={
+        counter:0,
+        get reset(){
+            this.counter=0;
+        },
+        get increment(){
+            this.counter++;
+        },
+        get decrement(){
+          this.counter--;
+        },
+        set add(value){
+            this.counter+=value;
+        },
+        set subtract(value){
+            this.counter-=value;
+        }
+    };
+    obj.reset;
+    document.getElementById("demo1").innerHTML=obj.counter;
+    obj.add=5;
+    document.getElementById("demo2").innerHTML=obj.counter;
+    obj.subtract=1;
+    document.getElementById("demo3").innerHTML=obj.counter;
+    obj.increment;
+    document.getElementById("demo4").innerHTML=obj.counter;
+    obj.decrement;
+    document.getElementById("demo5").innerHTML=obj.counter;
+</script>
+</body>
+</html>

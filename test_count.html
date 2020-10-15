@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TTTTTTTTTTT</title>
+</head>
+<body>
+<h1>JavaScript 函数闭包</h1>
+<p>使用全局变量计数。</p>
+<button type="button" onclick="myFunction()">计数！</button>
+<p id="demo">0</p>
+<p id="demo1"></p>
+<script>
+    // function add() {
+    //     var counter=0;
+    //     counter +=1;
+    //     return counter;
+    // }
+    var add=(function () {
+        var counter=0;
+        return function () {
+            counter +=1;return counter;}
+    })();
+        function myFunction() {
+                document.getElementById("demo").innerHTML=add();
+                document.getElementById("demo1").innerHTML='第一段中的文本 (index 0) 是：' + x[0].innerHTML+add();
+        }
+         var x=document.getElementsByTagName("p");
+
+</script>
+</body>
+</html>

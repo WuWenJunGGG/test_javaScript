@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+<p>在本例中，<b>this</b> 代表 <b>person</b> 对象。</p>
+<p id="demo"></p>
+<script>
+    var person={
+        firstName: "Bill",
+        lastName : "Gates",
+        id     : 678,
+        fullname : function () {
+            return this.firstName +"" +this.lastName;
+        }
+    };
+    document.getElementById("demo").innerHTML =person.fullname()
+
+</script>
+</body>
+</html>

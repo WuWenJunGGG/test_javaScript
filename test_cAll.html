@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>11111111111111111111</p>
+<p id="demo1"></p>
+<p>2222222222222222222</p>
+<p id="demo2"></p>
+<p>33333333333333333333</p>
+<p id="demo3"></p>
+<script>
+    var person={
+        fullName: function(city,country) {
+            return this.firstName + " " + this.lastName +","+city+","+country;
+        }
+    }
+    var person1={
+        firstName:"111",
+        lastName:"AAA"
+    }
+      var person2={
+        firstName:"222",
+        lastName:"BBB"
+    }
+    var x=person.fullName.call(person1);
+    document.getElementById("demo1").innerHTML=x;
+    var y=person.fullName.call(person2);
+    document.getElementById("demo2").innerHTML=y;
+    var z=person.fullName.call(person1,"Seat","USA");
+    document.getElementById("demo3").innerHTML=z;
+</script>
+</body>
+</html>

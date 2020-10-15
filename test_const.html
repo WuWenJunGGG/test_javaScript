@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Const</title>
+</head>
+<body>
+<h2>JavaScript const</h2>
+<p>声明常量对象不会使对象属性不可更改：</p>
+<p id="demo"></p>
+<script>
+    const car={type:"Porsche", model:"911", color:"white"};
+    car.color="red";
+    car.owner="Steve";
+    document.getElementById("demo").innerHTML="车主是："+car.owner;
+</script>
+</body>
+</html>

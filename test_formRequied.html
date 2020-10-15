@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 能够验证输入</title>
+</head>
+<body>
+<p>请输入 1 与 10 之间的数：</p>
+<input id="numb">
+<button type="button" onclick="myFunction()">提交</button>
+<p id="demo"></p>
+<script>
+    function myFunction() {
+        var x,text;
+        x=document.getElementById("numb").value;
+        if (isNaN(x) ||x<1||x>10){
+            text="无效";
+        }else {
+            text="输入有效";
+        }
+        document.getElementById("demo").innerHTML=text;
+    }
+</script>
+</body>
+</html>

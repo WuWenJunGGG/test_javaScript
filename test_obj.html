@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TTTTTTTT</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+    function Person(first,last,age,eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+        this.name=function () {
+            return this.firstName+""+ this.lastName;
+        };
+        this.changeName=function (name) {
+            this.lastName=name;
+        }
+    }
+
+    var myFather=new Person("Bill", "Gates", 62, "blue");
+    var myMother=new Person("Steve", "Jobs", 56, "green");
+    myFather.nationality="English";
+    myFather.name=function(){
+        return this.firstName +""+this.lastName;
+    };
+    myMother.changeName("MAli");
+    document.getElementById("demo").innerHTML="My Fahter is :" + myFather.name()  +"<br>"+ "His NATIONALITY IS:"+ myFather.nationality +"<br>"+"My Mother is: " + myMother.name() + ".";
+</script>
+</body>
+</html>
