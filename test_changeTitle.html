@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TTT</title>
+</head>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: red;
+}
+</style>
+<body>
+<!--<h1 id="id1">标题</h1>-->
+<!--<button type="button" onclick="document.getElementById('id1').style.color='red'">-->
+<!--点！</button>-->
+<h1>动画</h1>
+<p><button onclick="myMove()">起飞</button></p>
+<div id="container">
+    <div id="animate"></div>
+</div>
+<script>
+    function myMove() {
+        var elem=document.getElementById("animate");
+        var pos=0;
+        var id = setInterval(frame,10);
+        function frame() {
+            if (pos ==350){
+                clearInterval(id);
+            }else{
+                pos++;
+                elem.style.top=pos + "px";
+                elem.style.left=pos + "px";
+            }
+        }
+    }
+</script>
+</body>
+</html>

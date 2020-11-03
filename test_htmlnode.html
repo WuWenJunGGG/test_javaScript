@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <p id="p1">这是一段文字。</p>
+    <p id="p2">这是另一段文字。</p>
+
+</div>
+<button onclick="myFunction()">试一试</button>
+<script>
+    var para=document.createElement("p");
+    var node =document.createTextNode("TTTTTTTTTTTTTTTTTTTTTT");
+    para.appendChild(node);
+    var element =document.getElementById("div1");
+    var child=document.getElementById("p1");
+    // element.appendChild(para);
+    element.insertBefore(para,child);
+    function myFunction() {
+        var myNodelist=document.querySelectorAll("p");
+        var i;
+        for(i=0;i<myNodelist.length;i++){
+            myNodelist[i].style.color="red";
+        }
+    }
+</script>
+</body>
+</html>

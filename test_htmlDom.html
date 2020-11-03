@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML DOM</title>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("fname");
+            x.value=x.value.toUpperCase();
+        }
+    </script>
+</head>
+<body>
+请输入您的名字：<input type="text" id="fname" onchange="myFunction()">
+<p>离开输入字段时，会触发一个函数，将输入文本转换为大写。</p>
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+ 点击鼠标
+</div>
+<p>此示例使用 addEventListener() 方法将 click 事件附加到按钮。</p>
+<button id="myBtn2">试一试</button>
+<p id="demo2"></p>
+<script>
+    function mDown(obj) {
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML="松开鼠标"
+    }
+    function mUp(obj) {
+        obj.style.backgroundColor="#D94A38";
+        obj.innerHTML="谢谢您";
+    }
+    var x=document.getElementById("myBtn2");
+    x.addEventListener("mouseover",overFunction);
+    x.addEventListener("click",secondFunction);
+    x.addEventListener("mouseout",thirdFunction);
+    function overFunction() {
+        document.getElementById("demo2").innerHTML += "Moused over!<br>";
+    }
+    function secondFunction() {
+        document.getElementById("demo2").innerHTML += "Clicked!<br>";
+    }
+    function thirdFunction() {
+            document.getElementById("demo2").innerHTML +="Moused out!<br>";
+    }
+    // document.getElementById("myBtn2").addEventListener("click",displayDate);
+    // document.getElementById("myBtn2").addEventListener("click",firstFunction);
+    // document.getElementById("myBtn2").addEventListener("click",otherFunction);
+    // function displayDate() {
+    //     document.getElementById("myBtn2").innerHTML=Date();
+    // }
+    // function firstFunction() {
+    //     alert("HTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+    // }
+    // function otherFunction() {
+    //     alert("此函数也被执行了！")
+    // }
+</script>
+</body>
+</html>
