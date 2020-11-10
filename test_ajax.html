@@ -4,15 +4,27 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    table,th,td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th,td {
+  padding: 5px;
+}
+</style>
 <body>
 <!--<div id="demo">-->
     <!--<h1>XMKHttpRequest</h1>-->
     <!--<button type="button" onclick="loadDoxc('test_welcome.html',myFunction)">更改内容</button>-->
 <!--</div>-->
  <h1>XMKHttpRequest</h1>
-<p id="demo"></p>
-    <!--<button type="button" onclick="loadDoxc('test_welcome.html',myFunction)">更改内容</button>-->
-<p >最后修改时间:<span id="demo2"></span></p>
+<!--<p id="demo"></p>-->
+<!--    &lt;!&ndash;<button type="button" onclick="loadDoxc('test_welcome.html',myFunction)">更改内容</button>&ndash;&gt;-->
+<!--<p >最后修改时间:<span id="demo2"></span></p>-->
+<button type="button" onclick="loadDoc()">获取我的音乐列表</button>
+<br><br>
+<table id="demo"></table>
 <script>
     // function loadDoxc(url,cFunction) {
     //     var xhttp;
@@ -28,21 +40,46 @@
     // function myFunction(xhttp) {
     //     document.getElementById("demo").innerHTML=xhttp.responseText;
     // }
-    var xhttp,xmlDoc,txt,x,i;
-    xhttp =new XMLHttpRequest();
-    xhttp.onreadystatechange=function () {
-        if (this.readyState==4&&this.status==200){
-            xmlDoc=this.responseXML;
-            txt="";
-            x=xmlDoc.getElementsByTagName("ARTIST");
-            for (i=0;i<x.length;i++){
-                txt=txt+x[i].childNodes[0].nodeValue+"<br>";
+    // var xhttp,xmlDoc,txt,x,i;
+    // xhttp =new XMLHttpRequest();
+    // xhttp.onreadystatechange=function () {
+    //     if (this.readyState==4&&this.status==200){
+    //         xmlDoc=this.responseXML;
+    //         txt="";
+    //         x=xmlDoc.getElementsByTagName("ARTIST");
+    //         for (i=0;i<x.length;i++){
+    //             txt=txt+x[i].childNodes[0].nodeValue+"<br>";
+    //         }
+    //         document.getElementById("demo").innerHTML=txt;
+    //     }
+    // };
+    // xhttp.open("GET","music_list.xml",true);
+    // xhttp.send();
+    function loadDoc() {
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange=function () {
+            if (this.readyState ==4&&this.status==200){
+                myFunction(this);
             }
-            document.getElementById("demo").innerHTML=txt;
+        };
+        xhttp.open("GET","music_list.xml",true)
+        xhttp.send();
+    }
+    function myFunction(xml) {
+        var i;
+        var xmlDoc=xml.responseXML;
+        var table="<tr><th>艺术家</th>" +
+                        "<th>曲目</th></tr>";
+        var x=xmlDoc.getElementsByTagName("TRACK");
+        for (i=0;i<x.length;i++){
+            table+="<tr><td>"+
+                    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue+
+                    "</td><td>"+
+                    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue+
+                    "</td></tr>";
         }
-    };
-    xhttp.open("GET","music_list.xml",true);
-    xhttp.send();
+            document.getElementById("demo").innerHTML=table;
+    }
 </script>
 </body>
 </html>

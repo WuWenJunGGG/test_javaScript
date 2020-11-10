@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div id="showMUSIC"></div>-->
+<!--<div>-->
+<!--<input type="button" onclick="previous()" value="<<">-->
+<!--<input type="button" onclick="next()" value=">>">-->
+<!--</div>-->
+<!--<script>-->
+<!--var i=0,len;-->
+<!--displayMUSIC(0);-->
+<!--function displayMUSIC(i) {-->
+<!--    var xmlhttp=new XMLHttpRequest();-->
+<!--    xmlhttp.onreadystatechange=function () {-->
+<!--        if (this.readyState ==4&&this.status==200){-->
+<!--            myFunction(this,i);-->
+<!--        }-->
+<!--    };-->
+<!--    xmlhttp.open("GET","music_list.xml",true);-->
+<!--    xmlhttp.send();-->
+<!--}-->
+<!--function myFunction(xml,i) {-->
+<!--    var  xmlDoc=xml.responseXML;-->
+<!--    x=xmlDoc.getElementsByTagName("TRACK");-->
+<!--    len=x.length;-->
+<!--    document.getElementById("showMUSIC").innerHTML =-->
+<!--     "<ul>" +-->
+<!--      "<li>曲目：" +-->
+<!--      x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "<li>艺术家：" +-->
+<!--      x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "<li>专辑：" +-->
+<!--      x[i].getElementsByTagName("ALBUM")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "<li>国家：" +-->
+<!--      x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "<li>公司：" +-->
+<!--      x[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "<li>年份：" +-->
+<!--      x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue + "</li>" +-->
+<!--      "</ul>";-->
+<!--}-->
+<!--function next() {-->
+<!--    if (i<len-1){-->
+<!--        i++;-->
+<!--        displayMUSIC(i);-->
+<!--    }-->
+<!--}-->
+<!--function previous() {-->
+<!--    if(i>0){-->
+<!--        i&#45;&#45;;-->
+<!--        displayMUSIC(i);-->
+<!--    }-->
+<!--}-->
+<!--</script>-->
+<div>
+<p>请点击某个曲目，可显示专辑信息。</p>
+    <p id="showMUSIC"></p>
+    <table id="demo"></table>
+</div>
+<script>
+    var x,xmlhttp,xmlDoc
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET","music_list.xml",false);
+    xmlhttp.send();
+    xmlDoc=xmlhttp.responseXML;
+    x=xmlDoc.getElementsByTagName("TRACK");
+    table="<tr><th>艺术家</th><th>曲目</th></tr>";
+    for (i=0;i<x.length;i++){
+        table+="<tr onclick='displayMUSIC("+i+")'><td>";
+        table+= x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+        table += "</td><td>";
+        table +=  x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+        table += "</td></tr>";
+    }
+    document.getElementById("demo").innerHTML=table;
+    function displayMUSIC(i) {
+         document.getElementById("showMUSIC").innerHTML =
+          "<ul>" +
+          "<li>曲目：" +
+          x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</li>" +
+          "<li>艺术家：" +
+          x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</li>" +
+          "<li>专辑：" +
+          x[i].getElementsByTagName("ALBUM")[0].childNodes[0].nodeValue + "</li>" +
+          "<li>国家：" +
+          x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue + "</li>" +
+          "<li>公司：" +
+          x[i].getElementsByTagName("COMPANY")[0].childNodes[0].nodeValue + "</li>" +
+          "<li>年份：" +
+          x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue + "</li>" +
+          "</ul>";
+    }
+</script>
+</body>
+</html>

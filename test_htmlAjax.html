@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div id="demo">-->
+<!--    <h1>XMLHttpRequest 对象 </h1>-->
+<!--    <button type="button" onclick="loadDoc()">修改内容</button>-->
+<!--</div>-->
+<h1>XMLHttpRequest 对象</h1>
+<p id="demo">让 AJAX 改变这段文本</p>
+<button type="button" onclick="loadDoc()">更改内容</button>
+<script>
+    function loadDoc() {
+        var xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange=function () {
+            if (this.readyState ==4&&this.status==200){
+                document.getElementById("demo").innerHTML=this.responseText;
+            }
+        };
+        xhttp.open("GET","test_welcome.html",true);
+        // xhttp.send();
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("fname=Bill&lname=Gates");
+
+    }
+</script>
+</body>
+</html>
